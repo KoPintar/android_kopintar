@@ -10,4 +10,9 @@
     <string name="hint_password">Password</string>
     <string name="text_btn_login">Masuk</string>
     <string name="text_btn_register">Daftar</string>
+    <string name="register_title">Daftar</string>
+    <string name="register_description">Lengkapi datamu dulu ya ✨</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_nama_lengkap">Nama Lengkap</string>
+    <string name="image_register">Image Register</string>
 </resources>

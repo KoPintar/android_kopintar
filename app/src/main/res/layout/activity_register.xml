@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -16,14 +17,15 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="200dp"
             android:layout_marginBottom="16dp"
-            android:src="@drawable/login_image" />
+            android:contentDescription="@string/image_register"
+            android:src="@drawable/register_image" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/login_title"
+            android:text="@string/register_title"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -32,9 +34,53 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:layout_marginBottom="16dp"
-            android:text="@string/login_description"
+            android:layout_marginBottom="8dp"
+            android:text="@string/register_description"
             android:textColor="@color/black" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:labelFor="@id/edUsername"
+            app:boxStrokeColor="@color/primary"
+            app:startIconTint="@color/white">
+
+            <EditText
+                android:id="@+id/edNamaLengkap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="username"
+                android:ems="10"
+                android:hint="@string/hint_nama_lengkap"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                tools:ignore="LabelFor,SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:labelFor="@id/edEmail"
+            app:boxStrokeColor="@color/primary"
+            app:startIconTint="@color/white">
+
+            <EditText
+                android:id="@+id/edEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="email"
+                android:ems="10"
+                android:hint="@string/hint_email"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                tools:ignore="LabelFor,SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -81,17 +127,19 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
+            android:id="@+id/btn_register"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_marginTop="40dp"
             android:backgroundTint="@color/primary"
-            android:text="@string/text_btn_login" />
+            android:text="@string/text_btn_register" />
 
         <TextView
+            android:id="@+id/btn_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="@string/text_btn_register"
+            android:text="@string/text_btn_login"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="16sp" />
