@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">KopintarAndroid</string>
+    <string name="welcome_image">welcome_image</string>
+    <string name="welcome_title">Selamat Datang di KoPintar</string>
+    <string name="welcome_description">Deteksi dini penyakit tanaman kopi dan tingkatkan kualitas roast beans mu dengan AI</string>
+    <string name="start_button">Mulai</string>
+    <string name="login_title">Masuk</string>
+    <string name="login_description">Silahkan isi datamu dulu ya ✨</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="text_btn_login">Masuk</string>
+    <string name="text_btn_register">Daftar</string>
 </resources>
