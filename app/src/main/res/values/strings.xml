@@ -15,4 +15,9 @@
     <string name="hint_email">Email</string>
     <string name="hint_nama_lengkap">Nama Lengkap</string>
     <string name="image_register">Image Register</string>
+    <string name="title_hama">Deteksi Penyakit\nTanaman Kopi</string>
+    <string name="text_btn_camera">Camera</string>
+    <string name="text_btn_gallery">Gallery</string>
+    <string name="text_btn_analyze">Analyze</string>
+    <string name="title_roasting">Deteksi Profile\nRoasting Kopi</string>
 </resources>
