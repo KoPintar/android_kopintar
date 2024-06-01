@@ -1,4 +1,4 @@
-package com.tiodwisatrio.kopintarandroid.welcome
+package com.tiodwisatrio.kopintarandroid.view.welcome
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge

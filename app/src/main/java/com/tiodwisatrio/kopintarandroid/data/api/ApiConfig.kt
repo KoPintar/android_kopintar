@@ -29,7 +29,7 @@ object ApiConfig {
             .build()
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://story-api.dicoding.dev/v1/")
+            .baseUrl("https://kopintar.jagadraya.cloud/auth/")
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()

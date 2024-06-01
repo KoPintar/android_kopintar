@@ -28,7 +28,7 @@
             android:name=".view.login.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".welcome.WelcomeActivity"
+            android:name=".view.welcome.WelcomeActivity"
             android:exported="false" />
         <activity
             android:name=".view.home.MainActivity"
