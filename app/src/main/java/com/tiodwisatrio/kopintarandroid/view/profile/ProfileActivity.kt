@@ -9,26 +9,29 @@ import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.tiodwisatrio.kopintarandroid.R
+import com.tiodwisatrio.kopintarandroid.databinding.ActivityProfileBinding
 import com.tiodwisatrio.kopintarandroid.view.hama.HamaActivity
 import com.tiodwisatrio.kopintarandroid.view.home.MainActivity
 import com.tiodwisatrio.kopintarandroid.view.roasting.RoastingActivity
 
 class ProfileActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityProfileBinding
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_profile)
 
-        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottom_navigation)
+        binding = ActivityProfileBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         val optionsCompat: ActivityOptionsCompat =
             ActivityOptionsCompat.makeSceneTransitionAnimation(
                 this,
-                Pair(bottomNavigationView, "bottom_navigation"),
+                Pair(binding.bottomNavigation, "bottom_navigation"),
             )
 
-        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
+        binding.bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navigation_home -> {
                     startActivity(
@@ -62,6 +65,6 @@ class ProfileActivity : AppCompatActivity() {
             }
 
         }
-        bottomNavigationView.menu.findItem(R.id.navigation_profile).isChecked = true
+        binding.bottomNavigation.menu.findItem(R.id.navigation_profile).isChecked = true
     }
 }

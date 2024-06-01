@@ -20,4 +20,7 @@
     <string name="text_btn_gallery">Gallery</string>
     <string name="text_btn_analyze">Analyze</string>
     <string name="title_roasting">Deteksi Profile\nRoasting Kopi</string>
+
+    <string name="profile_title">Profile</string>
+    <string name="image_profile">Image Profile</string>
 </resources>
