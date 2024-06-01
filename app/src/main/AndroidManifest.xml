@@ -13,6 +13,12 @@
         android:theme="@style/Theme.KopintarAndroid"
         tools:targetApi="31">
         <activity
+            android:name=".view.roasting_result.RoastingResultActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.hama_result.HamaResultActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.roasting.RoastingActivity"
             android:exported="false" />
         <activity
@@ -28,10 +34,12 @@
             android:name=".view.login.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".view.welcome.WelcomeActivity"
-            android:exported="false" />
-        <activity
             android:name=".view.home.MainActivity"
+            android:exported="false" />
+
+
+        <activity
+            android:name=".view.welcome.WelcomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
