@@ -34,10 +34,12 @@
             android:name=".view.login.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".view.welcome.WelcomeActivity"
-            android:exported="false" />
-        <activity
             android:name=".view.home.MainActivity"
+            android:exported="false" />
+
+
+        <activity
+            android:name=".view.welcome.WelcomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
