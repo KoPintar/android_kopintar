@@ -4,16 +4,13 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.tiodwisatrio.kopintarandroid.R
 import com.tiodwisatrio.kopintarandroid.databinding.ActivityLoginBinding
 import com.tiodwisatrio.kopintarandroid.view.home.MainActivity
 import com.tiodwisatrio.kopintarandroid.view.register.RegisterActivity
 
 class LoginActivity : AppCompatActivity() {
-
     private lateinit var binding: ActivityLoginBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -31,6 +28,5 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
             startActivity(intent)
         }
-
     }
 }

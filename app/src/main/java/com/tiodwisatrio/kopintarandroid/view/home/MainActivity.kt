@@ -3,30 +3,41 @@ package com.tiodwisatrio.kopintarandroid.view.home
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.tiodwisatrio.kopintarandroid.R
+import com.tiodwisatrio.kopintarandroid.data.api.ApiConfig
+import com.tiodwisatrio.kopintarandroid.data.pref.UserPreference
+import com.tiodwisatrio.kopintarandroid.data.pref.dataStore
+import com.tiodwisatrio.kopintarandroid.databinding.ActivityMainBinding
+import com.tiodwisatrio.kopintarandroid.view.AuthViewModelFactory
 import com.tiodwisatrio.kopintarandroid.view.hama.HamaActivity
 import com.tiodwisatrio.kopintarandroid.view.profile.ProfileActivity
 import com.tiodwisatrio.kopintarandroid.view.roasting.RoastingActivity
+import com.tiodwisatrio.kopintarandroid.view.welcome.WelcomeActivity
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.runBlocking
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
 
-        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottom_navigation)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         val optionsCompat: ActivityOptionsCompat =
             ActivityOptionsCompat.makeSceneTransitionAnimation(
                 this,
-                Pair(bottomNavigationView, "bottom_navigation"),
+                Pair(binding.bottomNavigation, "bottom_navigation"),
             )
 
-        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
+        binding.bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navigation_home -> {
                     // Handle home action
@@ -61,7 +72,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        bottomNavigationView.menu.findItem(R.id.navigation_home).isChecked = true
-
+        binding.bottomNavigation.menu.findItem(R.id.navigation_home).isChecked = true
     }
 }
