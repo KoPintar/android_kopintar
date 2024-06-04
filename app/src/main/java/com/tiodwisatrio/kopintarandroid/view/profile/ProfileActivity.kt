@@ -9,13 +9,16 @@ import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.tiodwisatrio.kopintarandroid.R
+import com.tiodwisatrio.kopintarandroid.data.pref.UserPreferences
 import com.tiodwisatrio.kopintarandroid.databinding.ActivityProfileBinding
 import com.tiodwisatrio.kopintarandroid.view.hama.HamaActivity
 import com.tiodwisatrio.kopintarandroid.view.home.MainActivity
+import com.tiodwisatrio.kopintarandroid.view.login.LoginActivity
 import com.tiodwisatrio.kopintarandroid.view.roasting.RoastingActivity
 
 class ProfileActivity : AppCompatActivity() {
     private lateinit var binding: ActivityProfileBinding
+    private lateinit var userPreferences: UserPreferences
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,6 +27,11 @@ class ProfileActivity : AppCompatActivity() {
 
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        userPreferences = UserPreferences(this)
+
+        displayUserInfo()
+
 
         val optionsCompat: ActivityOptionsCompat =
             ActivityOptionsCompat.makeSceneTransitionAnimation(
@@ -66,5 +74,33 @@ class ProfileActivity : AppCompatActivity() {
 
         }
         binding.bottomNavigation.menu.findItem(R.id.navigation_profile).isChecked = true
+
+        binding.btnLogout.setOnClickListener {
+            logout()
+        }
     }
+
+    private fun displayUserInfo() {
+        val user = userPreferences.getUser()
+        user?.let {
+            binding.edNamaLengkap.isEnabled = false
+            binding.edNamaLengkap.setText(it.name)
+
+            binding.edEmail.isEnabled = false
+            binding.edEmail.setText(it.email)
+
+            binding.edUsername.isEnabled = false
+            binding.edUsername.setText(it.username)
+        }
+    }
+    private fun logout() {
+        userPreferences.clearUser()
+        val intent = Intent(this, LoginActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
+        finish()
+    }
+
+
+
 }
