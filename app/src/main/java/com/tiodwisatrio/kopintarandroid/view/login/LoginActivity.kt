@@ -3,11 +3,9 @@ package com.tiodwisatrio.kopintarandroid.view.login
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.tiodwisatrio.kopintarandroid.data.api.ApiConfig
-import com.tiodwisatrio.kopintarandroid.data.model.UserModel
 import com.tiodwisatrio.kopintarandroid.data.pref.UserPreferences
 import com.tiodwisatrio.kopintarandroid.data.repository.UserRepository
 import com.tiodwisatrio.kopintarandroid.databinding.ActivityLoginBinding
@@ -15,8 +13,8 @@ import com.tiodwisatrio.kopintarandroid.view.home.MainActivity
 import com.tiodwisatrio.kopintarandroid.view.register.RegisterActivity
 
 class LoginActivity : AppCompatActivity() {
-
     private lateinit var binding: ActivityLoginBinding
+
     private val viewModel: LoginViewModel by viewModels {
         LoginViewModelFactory(UserRepository(ApiConfig().getApiService()), UserPreferences(this))
     }
@@ -26,8 +24,27 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        observeViewModel()
+        setupAction()
+    }
 
+    private fun observeViewModel() {
+        viewModel.loginResult.observe(this) { result ->
+            result.fold(
+                onSuccess = {
+                    // Handle successful login, navigate to the next activity, etc.
+                    startActivity(Intent(this, MainActivity::class.java))
+                    finish()
+                },
+                onFailure = { exception ->
+                    // Handle login error
+                    Toast.makeText(this, "Login Failed: ${exception.message}", Toast.LENGTH_SHORT).show()
+                }
+            )
+        }
+    }
 
+    private fun setupAction() {
         binding.btnRegister.setOnClickListener {
             val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
             startActivity(intent)
@@ -38,19 +55,5 @@ class LoginActivity : AppCompatActivity() {
             val password = binding.edPassword.text.toString()
             viewModel.login(username, password)
         }
-
-        viewModel.loginResult.observe(this, { result ->
-            result.fold(
-                onSuccess = { user ->
-                    // Handle successful login, navigate to the next activity, etc.
-                    startActivity(Intent(this, MainActivity::class.java))
-                    finish()
-                },
-                onFailure = { exception ->
-                    // Handle login error
-                    Toast.makeText(this, "Login Failed: ${exception.message}", Toast.LENGTH_SHORT).show()
-                }
-            )
-        })
     }
 }
