@@ -65,6 +65,7 @@
             android:layout_marginTop="16dp"
             android:labelFor="@id/edUsername"
             app:boxStrokeColor="@color/primary"
+            app:endIconMode="password_toggle"
             app:startIconTint="@color/white">
 
             <com.google.android.material.textfield.TextInputEditText

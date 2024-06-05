@@ -1,11 +1,23 @@
 package com.tiodwisatrio.kopintarandroid.data.pref
 
 import android.content.Context
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.tiodwisatrio.kopintarandroid.data.model.UserModel
 
 
 class UserPreferences(context: Context) {
     private val sharedPreferences = context.getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
+    private val _userLiveData = MutableLiveData<UserModel>()
+
+    init {
+        _userLiveData.value = getUser()
+        sharedPreferences.registerOnSharedPreferenceChangeListener { _, key ->
+            if (key == "isLogin") {
+                _userLiveData.value = getUser()
+            }
+        }
+    }
 
     fun saveUser(user: UserModel) {
         sharedPreferences.edit().apply {
@@ -34,5 +46,10 @@ class UserPreferences(context: Context) {
 
     fun clearUser() {
         sharedPreferences.edit().clear().apply()
+        _userLiveData.value = getUser()
+    }
+
+    fun observeUser(): LiveData<UserModel> {
+        return _userLiveData
     }
 }

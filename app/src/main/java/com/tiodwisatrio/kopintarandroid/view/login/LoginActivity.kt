@@ -42,13 +42,13 @@ class LoginActivity : AppCompatActivity() {
         viewModel.loginResult.observe(this, { result ->
             result.fold(
                 onSuccess = { user ->
+                    // Handle successful login, navigate to the next activity, etc.
                     startActivity(Intent(this, MainActivity::class.java))
-                    Toast.makeText(this, "Login Berhasil!", Toast.LENGTH_SHORT).show()
                     finish()
                 },
                 onFailure = { exception ->
                     // Handle login error
-                    Toast.makeText(this, "Username atau Password Salah", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Login Failed: ${exception.message}", Toast.LENGTH_SHORT).show()
                 }
             )
         })

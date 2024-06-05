@@ -3,17 +3,24 @@ package com.tiodwisatrio.kopintarandroid.view.home
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
 import com.tiodwisatrio.kopintarandroid.R
+import com.tiodwisatrio.kopintarandroid.data.pref.UserPreferences
 import com.tiodwisatrio.kopintarandroid.databinding.ActivityMainBinding
 import com.tiodwisatrio.kopintarandroid.view.hama.HamaActivity
+import com.tiodwisatrio.kopintarandroid.view.login.LoginActivity
 import com.tiodwisatrio.kopintarandroid.view.profile.ProfileActivity
 import com.tiodwisatrio.kopintarandroid.view.roasting.RoastingActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+
+    private val viewModel: MainViewModel by viewModels {
+        MainViewModelFactory(UserPreferences(this))
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,6 +28,12 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        setupBottomNavigation()
+        observeViewModel()
+    }
+
+    private fun setupBottomNavigation() {
 
         val optionsCompat: ActivityOptionsCompat =
             ActivityOptionsCompat.makeSceneTransitionAnimation(
@@ -64,5 +77,14 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.bottomNavigation.menu.findItem(R.id.navigation_home).isChecked = true
+    }
+
+    private fun observeViewModel() {
+        viewModel.userSession.observe(this) { user ->
+            if (!user.isLogin) {
+                startActivity(Intent(this, LoginActivity::class.java))
+                finish()
+            }
+        }
     }
 }
