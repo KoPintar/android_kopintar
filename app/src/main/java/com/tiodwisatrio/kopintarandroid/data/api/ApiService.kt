@@ -40,7 +40,7 @@ interface ApiService {
     ): UpdateProfileResponse
 
     @Multipart
-    @POST("predict/roasting")
+    @POST("predict/daun")
     suspend fun predictHama(
         @Part file: MultipartBody.Part,
     ): HamaResponse
