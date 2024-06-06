@@ -106,6 +106,9 @@ class ProfileActivity : AppCompatActivity() {
                     Toast.makeText(this, "Update Profile Failed: ${exception.message}", Toast.LENGTH_SHORT).show()
                 }
             )
+
+            binding.progressBar.visibility = View.GONE
+
         }
     }
 
@@ -176,6 +179,9 @@ class ProfileActivity : AppCompatActivity() {
     }
 
     private fun updateProfile() {
+        binding.progressBar.visibility = View.VISIBLE
+
+
         val name = binding.edNamaLengkap.text.toString()
         val username = binding.edUsername.text.toString()
         val email = binding.edEmail.text.toString()
