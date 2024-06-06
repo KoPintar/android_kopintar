@@ -23,9 +23,11 @@ class HamaResultActivity : AppCompatActivity() {
         val imageUri: Uri? = intent.getParcelableExtra(EXTRA_IMAGE)
 
         binding.resultImage.setImageURI(imageUri)
-        binding.titlePenyakit.text = "Profile Roasting: ${hamaResult?.result}"
-        binding.akurasiPenyakit.text = "Akurasi: ${hamaResult?.confidenceScore}"
+        binding.titlePenyakit.text = "Penyakit: ${hamaResult?.result}"
+        val confidenceScorePercentage = hamaResult?.confidenceScore?.times(100)?.toInt()
+        binding.akurasiPenyakit.text = "Akurasi: ${confidenceScorePercentage}%"
     }
+
 
     companion object {
         const val EXTRA_IMAGE = "extra_image"

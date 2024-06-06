@@ -24,7 +24,9 @@ class RoastingResultActivity : AppCompatActivity() {
 
         binding.resultImage.setImageURI(imageUri)
         binding.titleRoasting.text = "Profile Roasting: ${roastingResult?.result}"
-        binding.akurasiRoasting.text = "Akurasi: ${roastingResult?.confidenceScore}"
+
+        val confidenceScorePercentage = roastingResult?.confidenceScore?.times(100)
+        binding.akurasiRoasting.text = "Akurasi: ${confidenceScorePercentage?.toInt()}%"
     }
 
     companion object {
