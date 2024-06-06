@@ -102,17 +102,69 @@
                 tools:ignore="LabelFor,SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutPassword"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:labelFor="@id/edUsername"
+            android:visibility="gone"
+            app:boxStrokeColor="@color/primary"
+            app:endIconMode="password_toggle"
+            app:startIconTint="@color/white">
 
+            <EditText
+                android:id="@+id/edPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="password"
+                android:ems="10"
+                android:enabled="false"
+                android:hint="@string/hint_password"
+                android:inputType="textPassword"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                tools:ignore="LabelFor,SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btnUpdate"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/blue"
+            android:text="@string/update"
+            android:visibility="visible" />
 
         <Button
             android:id="@+id/btnLogout"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_gravity="center"
-            android:text="Logout"
             android:backgroundTint="@color/primary"
+            android:text="@string/logout"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
             android:layout_marginTop="16dp"
-            />
+            android:backgroundTint="@color/blue"
+            android:text="@string/save"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/primary"
+            android:text="@string/back"
+            android:visibility="gone" />
 
     </LinearLayout>
 

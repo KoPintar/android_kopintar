@@ -27,4 +27,10 @@
     <string name="loading">Memuat</string>
 
     <string name="login_error_empty_field">Username atau password tidak boleh kosong</string>
+
+    <string name="logout">Keluar</string>
+    <string name="update">Perbarui</string>
+
+    <string name="save">Simpan</string>
+    <string name="back">Kembali</string>
 </resources>
