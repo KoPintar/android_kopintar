@@ -6,16 +6,23 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.tiodwisatrio.kopintarandroid.R
+import com.tiodwisatrio.kopintarandroid.databinding.ActivityRoastingResultBinding
 
 class RoastingResultActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityRoastingResultBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_roasting_result)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+        binding = ActivityRoastingResultBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        val result = intent.getStringExtra("result")
+        val classResult = intent.getIntExtra("classResult", -1)
+        val confidenceScore = intent.getDoubleExtra("confidenceScore", -1.0)
+
+        binding.tvResult.text = "Result: $result"
+        binding.tvClassResult.text = "Class Result: $classResult"
+        binding.tvConfidenceScore.text = "Confidence Score: $confidenceScore"
     }
 }

@@ -18,24 +18,36 @@
         android:src="@drawable/result_image" />
 
     <TextView
-        android:id="@+id/title_roasting"
         android:layout_width="match_parent"
-        android:textAlignment="center"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:textSize="20sp"
+        android:text="Roasting Profile Result"
+        android:textSize="24sp"
         android:textStyle="bold"
-        android:text="Profile Roasting : Medium" />
+        android:layout_marginBottom="16dp" />
 
     <TextView
-        android:id="@+id/akurasi_roasting"
+        android:id="@+id/tvResult"
         android:layout_width="match_parent"
-        android:textAlignment="center"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:text="Akurasi : 90%" />
+        android:text="Result: "
+        android:textSize="18sp"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/tvClassResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Class Result: "
+        android:textSize="18sp"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/tvConfidenceScore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Confidence Score: "
+        android:textSize="18sp"
+        android:layout_marginBottom="8dp" />
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>

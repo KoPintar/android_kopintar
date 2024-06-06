@@ -15,7 +15,7 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
 
     private val viewModel: RegisterViewModel by viewModels {
-        RegisterViewModelFactory(UserRepository(ApiConfig().getApiService()))
+        RegisterViewModelFactory(UserRepository(ApiConfig.getApiService()))
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -18,7 +18,7 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
     private val viewModel: LoginViewModel by viewModels {
-        LoginViewModelFactory(UserRepository(ApiConfig().getApiService()), UserPreferences(this))
+        LoginViewModelFactory(UserRepository(ApiConfig.getApiService()), UserPreferences(this))
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
