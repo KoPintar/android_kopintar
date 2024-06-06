@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.PickVisualMediaRequest
@@ -124,6 +125,8 @@ class RoastingActivity : AppCompatActivity() {
     private fun predictImage() {
         val image = currentImageUri
         if (image != null) {
+            binding.progressBar.visibility = View.VISIBLE
+
             viewModel.predictRoasting(image, this)
         } else {
             showToast("Pilih gambar terlebih dahulu")
@@ -148,10 +151,14 @@ class RoastingActivity : AppCompatActivity() {
                     intent.putExtra(RoastingResultActivity.EXTRA_IMAGE, currentImageUri)
 
                     startActivity(intent)
+                    binding.progressBar.visibility = View.GONE
+
                 },
                 onFailure = { exception ->
                     // Handle predict error
                     Toast.makeText(this, "Predict Failed: ${exception.message}", Toast.LENGTH_SHORT).show()
+                    binding.progressBar.visibility = View.GONE
+
                 }
             )
         }

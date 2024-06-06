@@ -3,6 +3,7 @@ package com.tiodwisatrio.kopintarandroid.view.hama
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.PickVisualMediaRequest
@@ -87,7 +88,7 @@ class HamaActivity : AppCompatActivity() {
 
         binding.btnCamera.setOnClickListener { startCamera() }
         binding.btnGallery.setOnClickListener { startGallery() }
-//        binding.btnAnalyze.setOnClickListener { predictImage() }
+        binding.btnAnalyze.setOnClickListener { predictImage() }
     }
 
     private val launcherIntentCamera = registerForActivityResult(
@@ -121,6 +122,7 @@ class HamaActivity : AppCompatActivity() {
     private fun predictImage() {
         val image = currentImageUri
         if (image != null) {
+            binding.progressBar.visibility = View.VISIBLE
             viewModel.predictHama(image, this)
         } else {
             showToast("Pilih gambar terlebih dahulu")
@@ -145,11 +147,12 @@ class HamaActivity : AppCompatActivity() {
                     intent.putExtra(HamaResultActivity.EXTRA_IMAGE, currentImageUri)
 
                     startActivity(intent)
-                    finish()
+                    binding.progressBar.visibility = View.GONE
                 },
                 onFailure = { exception ->
                     // Handle predict error
                     Toast.makeText(this, "Predict Failed: ${exception.message}", Toast.LENGTH_SHORT).show()
+                    binding.progressBar.visibility = View.GONE
                 }
             )
         }
