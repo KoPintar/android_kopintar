@@ -15,6 +15,7 @@ import androidx.core.util.Pair
 import com.tiodwisatrio.kopintarandroid.R
 import com.tiodwisatrio.kopintarandroid.data.api.ApiConfig
 import com.tiodwisatrio.kopintarandroid.data.repository.PredictRepository
+import com.tiodwisatrio.kopintarandroid.data.response.disease.DiseaseResult
 import com.tiodwisatrio.kopintarandroid.data.response.hama.HamaResult
 import com.tiodwisatrio.kopintarandroid.databinding.ActivityHamaBinding
 import com.tiodwisatrio.kopintarandroid.getImageUri
@@ -121,11 +122,23 @@ class HamaActivity : AppCompatActivity() {
 
     private fun predictImage() {
         val image = currentImageUri
+        val type = getTypeFromRadioGroup()
+
         if (image != null) {
             binding.progressBar.visibility = View.VISIBLE
-            viewModel.predictHama(image, this)
+            if (type != null) {
+                viewModel.predictDisease(image, type, this)
+            }
         } else {
             showToast("Pilih gambar terlebih dahulu")
+        }
+    }
+
+    private fun getTypeFromRadioGroup(): String? {
+        return when (binding.radioGroup.checkedRadioButtonId) {
+            R.id.daun -> "daun"
+            R.id.biji -> "biji"
+            else -> null
         }
     }
 
@@ -133,11 +146,12 @@ class HamaActivity : AppCompatActivity() {
         viewModel.predictResult.observe(this) { result ->
             result.fold(
                 onSuccess = {
-                    // Handle successful predict, navigate to the next activity, etc.
-                    val dataResult = HamaResult(
+
+                    val dataResult = DiseaseResult(
                         result = it.result,
                         classResult = it.classResult,
-                        confidenceScore = it.confidenceScore
+                        confidenceScore = it.confidenceScore,
+                        suggestion = it.suggestion
                     )
 
                     showToast("Prediksi berhasil")

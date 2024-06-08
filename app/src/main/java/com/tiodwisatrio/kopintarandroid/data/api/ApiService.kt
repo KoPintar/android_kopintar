@@ -1,11 +1,13 @@
 package com.tiodwisatrio.kopintarandroid.data.api
 
+import com.tiodwisatrio.kopintarandroid.data.response.disease.DiseaseResponse
 import com.tiodwisatrio.kopintarandroid.data.response.hama.HamaResponse
 import com.tiodwisatrio.kopintarandroid.data.response.login.LoginResponse
 import com.tiodwisatrio.kopintarandroid.data.response.profile.UpdateProfileResponse
 import com.tiodwisatrio.kopintarandroid.data.response.register.RegisterResponse
 import com.tiodwisatrio.kopintarandroid.data.response.roasting.RoastingResponse
 import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.Multipart
@@ -43,7 +45,16 @@ interface ApiService {
     @POST("predict/daun")
     suspend fun predictHama(
         @Part file: MultipartBody.Part,
+
     ): HamaResponse
+
+    @Multipart
+    @POST("predict/disease")
+    suspend fun predictDisease(
+        @Part file: MultipartBody.Part,
+        @Part("type") type: RequestBody
+
+        ): DiseaseResponse
 
     @Multipart
     @POST("predict/roasting")
