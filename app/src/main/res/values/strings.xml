@@ -1,36 +1,69 @@
 <resources>
+    <!-- App Name -->
     <string name="app_name">KopintarAndroid</string>
+
+    <!-- Welcome Screen -->
     <string name="welcome_image">welcome_image</string>
     <string name="welcome_title">Selamat Datang di KoPintar</string>
     <string name="welcome_description">Deteksi dini penyakit tanaman kopi dan tingkatkan kualitas\nroast beans mu dengan AI</string>
-    <string name="start_button">Mulai</string>
+
+    <!-- Login Screen -->
     <string name="login_title">Masuk</string>
     <string name="login_description">Silahkan isi datamu dulu ya ✨</string>
-    <string name="hint_username">Username</string>
-    <string name="hint_password">Password</string>
-    <string name="text_btn_login">Masuk</string>
-    <string name="text_btn_register">Daftar</string>
+    <string name="login_image">Image Login</string>
+
+    <!-- Register Screen -->
     <string name="register_title">Daftar</string>
     <string name="register_description">Lengkapi datamu dulu ya ✨</string>
-    <string name="hint_email">Email</string>
-    <string name="hint_nama_lengkap">Nama Lengkap</string>
-    <string name="image_register">Image Register</string>
-    <string name="title_hama">Deteksi Penyakit\nTanaman Kopi</string>
-    <string name="text_btn_camera">Camera</string>
-    <string name="text_btn_gallery">Gallery</string>
-    <string name="text_btn_analyze">Analyze</string>
-    <string name="title_roasting">Deteksi Profile\nRoasting Kopi</string>
+    <string name="register_image">Image Register</string>
 
+    <!-- Profile Screen -->
     <string name="profile_title">Profile</string>
-    <string name="image_profile">Image Profile</string>
+    <string name="profile_image">Image Profile</string>
 
-    <string name="loading">Memuat</string>
+    <!-- Disease Detection Screen -->
+    <string name="disease_detection_title">Deteksi Penyakit\nTanaman Kopi</string>
 
-    <string name="login_error_empty_field">Username atau password tidak boleh kosong</string>
+    <!-- Roasting Profile Screen -->
+    <string name="roasting_profile_title">Deteksi Profile\nRoasting Kopi</string>
 
-    <string name="logout">Keluar</string>
-    <string name="update">Perbarui</string>
+    <!-- Common Actions -->
+    <string name="action_start">Mulai</string>
+    <string name="action_loading">Memproses</string>
+    <string name="action_logout">Keluar</string>
+    <string name="action_update">Perbarui</string>
+    <string name="action_save">Simpan</string>
+    <string name="action_back">Kembali</string>
+    <string name="action_send_email">Kirim ke Email</string>
+    <string name="action_forgot_password">Lupa kata sandi?</string>
+    <string name="action_login">Masuk</string>
+    <string name="action_register">Daftar</string>
+    <string name="action_camera">Kamera</string>
+    <string name="action_gallery">Galeri</string>
+    <string name="action_analyze">Analisis</string>
 
-    <string name="save">Simpan</string>
-    <string name="back">Kembali</string>
+    <!-- Hint Text-->
+    <string name="hint_full_name">Nama Lengkap</string>
+    <string name="hint_username">Nama Pengguna</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Kata sandi</string>
+    <string name="hint_reenter_password">Masukin kata sandi lagi</string>
+
+    <!-- Email Sending -->
+    <string name="send_email_success">Email berhasil dikirim</string>
+    <string name="send_email_failed">Email gagal dikirim</string>
+    <string name="error_email_format">Masukin email dengan format yang benar</string>
+
+    <!-- Plant Parts -->
+    <string name="plant_part_leaf">Daun</string>
+    <string name="plant_part_seed">Biji</string>
+
+    <!-- Error Messages -->
+    <string name="error_empty_field">Isi semua form terlebih dahulu</string>
+    <string name="error_password_not_match">Kata sandi tidak cocok</string>
+    <string name="error_password_length">Kata sandi harus lebih dari 8 karakter</string>
+
+    <!-- Forgot Password -->
+    <string name="forgot_password_title">Lupa Kata Sandi</string>
+    <string name="forgot_password_description">Masukkan email yang terdaftar di aplikasi</string>
 </resources>

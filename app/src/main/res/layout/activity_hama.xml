@@ -20,28 +20,25 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/title_hama"
+            android:text="@string/disease_detection_title"
             android:textAlignment="center"
             android:textSize="24sp"
             android:textStyle="bold" />
-
-
-
 
         <ImageView
             android:id="@+id/imagePreview"
             android:layout_width="250dp"
             android:layout_height="250dp"
             android:layout_gravity="center"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="56dp"
             android:src="@drawable/image_placeholder" />
 
         <RadioGroup
             android:id="@+id/radioGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:gravity="center_horizontal"
-            android:layout_marginTop="16dp"
             android:orientation="horizontal">
 
             <RadioButton
@@ -49,13 +46,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="32dp"
-                android:text="Daun" />
+                android:text="@string/plant_part_leaf" />
 
             <RadioButton
                 android:id="@+id/biji"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Buah" />
+                android:text="@string/plant_part_seed" />
         </RadioGroup>
 
         <ProgressBar
@@ -69,7 +66,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="56dp"
+            android:layout_marginTop="8dp"
             android:gravity="center_horizontal"
             android:orientation="horizontal">
 
@@ -77,9 +74,9 @@
                 android:id="@+id/btn_camera"
                 android:layout_width="160dp"
                 android:layout_height="56dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginEnd="16dp"
                 android:backgroundTint="@color/blue"
-                android:text="@string/text_btn_camera"
+                android:text="@string/action_camera"
                 android:textColor="@color/white" />
 
             <Button
@@ -87,7 +84,7 @@
                 android:layout_width="160dp"
                 android:layout_height="56dp"
                 android:backgroundTint="@color/green"
-                android:text="@string/text_btn_gallery"
+                android:text="@string/action_gallery"
                 android:textColor="@color/white" />
         </LinearLayout>
 
@@ -97,7 +94,7 @@
             android:layout_height="64dp"
             android:layout_marginTop="16dp"
             android:backgroundTint="@color/primary"
-            android:text="@string/text_btn_analyze"
+            android:text="@string/action_analyze"
             android:textColor="@color/white" />
     </LinearLayout>
 

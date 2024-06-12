@@ -75,6 +75,5 @@ dependencies {
     implementation(libs.logging.interceptor)
     
 
-//    implementation(libs.yalantis.ucrop)
-
+    implementation("com.github.bumptech.glide:glide:4.16.0")
 }

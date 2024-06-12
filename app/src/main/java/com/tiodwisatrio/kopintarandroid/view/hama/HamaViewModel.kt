@@ -33,7 +33,6 @@ class HamaViewModel(private val predictRepository: PredictRepository) : ViewMode
 
             val typePart = type.toRequestBody("text/plain".toMediaType())
 
-
             viewModelScope.launch {
                 try {
                     val response = predictRepository.predictDisease(image, typePart)

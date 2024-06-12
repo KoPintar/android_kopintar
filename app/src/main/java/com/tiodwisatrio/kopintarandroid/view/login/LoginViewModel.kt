@@ -13,7 +13,14 @@ class LoginViewModel(private val userRepository: UserRepository, private val use
     private val _loginResult = MutableLiveData<Result<UserModel>>()
     val loginResult: LiveData<Result<UserModel>> get() = _loginResult
 
+    private val _forgotPasswordResult = MutableLiveData<Result<Boolean>>()
+    val forgotPasswordResult: LiveData<Result<Boolean>> get() = _forgotPasswordResult
+
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean> = _isLoading
+
     fun login(username: String, password: String) {
+        _isLoading.value = true
         viewModelScope.launch {
             try {
                 val response = userRepository.login(username, password)
@@ -34,6 +41,23 @@ class LoginViewModel(private val userRepository: UserRepository, private val use
                 }
             } catch (e: Exception) {
                 _loginResult.value = Result.failure(e)
+            } finally {
+                _isLoading.value = false
+            }
+        }
+    }
+
+    fun forgotPassword(email: String) {
+        viewModelScope.launch {
+            try {
+                val response = userRepository.forgotPassword(email)
+                if (response.success == true && response.data != null) {
+                    _forgotPasswordResult.value = Result.success(true)
+                } else {
+                    _forgotPasswordResult.value = Result.failure(Exception(response.message))
+                }
+            } catch (e: Exception) {
+                _forgotPasswordResult.value = Result.failure(e)
             }
         }
     }

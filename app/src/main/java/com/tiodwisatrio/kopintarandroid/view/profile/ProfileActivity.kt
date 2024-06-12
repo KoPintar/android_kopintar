@@ -106,18 +106,19 @@ class ProfileActivity : AppCompatActivity() {
                     Toast.makeText(this, "Update Profile Failed: ${exception.message}", Toast.LENGTH_SHORT).show()
                 }
             )
+        }
 
-            binding.progressBar.visibility = View.GONE
-
+        viewModel.isLoading.observe(this) { isLoading ->
+            if (isLoading) {
+                binding.btnSave.text = getString(R.string.action_loading)
+            } else {
+                binding.btnSave.text = getString(R.string.action_update)
+            }
         }
     }
 
     private fun displayUserInfo() {
-        binding.btnSave.visibility = View.GONE
-        binding.btnBack.visibility = View.GONE
-        binding.layoutPassword.visibility = View.GONE
-        binding.btnUpdate.visibility = View.VISIBLE
-        binding.btnLogout.visibility = View.VISIBLE
+        toggleUpdateMode(false)
 
         val user = userPreferences.getUser()
 
@@ -130,15 +131,13 @@ class ProfileActivity : AppCompatActivity() {
 
             binding.edUsername.isEnabled = false
             binding.edUsername.setText(it.username)
+
+            binding.edReenterPassword.text.clear()
         }
     }
 
     private fun updatedUserInfo(newUser: UserModel) {
-        binding.btnSave.visibility = View.GONE
-        binding.btnBack.visibility = View.GONE
-        binding.layoutPassword.visibility = View.GONE
-        binding.btnUpdate.visibility = View.VISIBLE
-        binding.btnLogout.visibility = View.VISIBLE
+        toggleUpdateMode(false)
 
         userPreferences.saveUser(newUser)
 
@@ -151,15 +150,13 @@ class ProfileActivity : AppCompatActivity() {
 
             binding.edUsername.isEnabled = false
             binding.edUsername.setText(it.username)
+
+            binding.edReenterPassword.text.clear()
         }
     }
 
     private fun updateUserInfo() {
-        binding.btnUpdate.visibility = View.GONE
-        binding.btnLogout.visibility = View.GONE
-        binding.btnSave.visibility = View.VISIBLE
-        binding.btnBack.visibility = View.VISIBLE
-        binding.layoutPassword.visibility = View.VISIBLE
+        toggleUpdateMode(true)
 
         val user = userPreferences.getUser()
 
@@ -175,19 +172,36 @@ class ProfileActivity : AppCompatActivity() {
 
             binding.edPassword.isEnabled = true
             binding.edPassword.setText(it.password)
+
+            binding.edReenterPassword.isEnabled = true
         }
     }
 
+    private fun toggleUpdateMode(isEditMode: Boolean) {
+        binding.btnSave.visibility = if (isEditMode) View.VISIBLE else View.GONE
+        binding.btnBack.visibility = if (isEditMode) View.VISIBLE else View.GONE
+        binding.layoutPassword.visibility = if (isEditMode) View.VISIBLE else View.GONE
+        binding.layoutReenterPassword.visibility = if (isEditMode) View.VISIBLE else View.GONE
+        binding.btnUpdate.visibility = if (!isEditMode) View.VISIBLE else View.GONE
+        binding.btnLogout.visibility = if (!isEditMode) View.VISIBLE else View.GONE
+    }
+
     private fun updateProfile() {
-        binding.progressBar.visibility = View.VISIBLE
-
-
         val name = binding.edNamaLengkap.text.toString()
         val username = binding.edUsername.text.toString()
         val email = binding.edEmail.text.toString()
         val password = binding.edPassword.text.toString()
+        val reenterPassword = binding.edReenterPassword.text.toString()
 
-        viewModel.updateProfile(name, username, email, password)
+        if (name.isNotEmpty() && username.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty() && reenterPassword.isNotEmpty()) {
+            if (password == reenterPassword) {
+                viewModel.updateProfile(name, username, email, password)
+            } else {
+                Toast.makeText(this, getString(R.string.error_password_not_match), Toast.LENGTH_SHORT).show()
+            }
+        } else {
+            Toast.makeText(this, getString(R.string.error_empty_field), Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun logout() {

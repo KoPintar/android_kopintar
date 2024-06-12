@@ -13,7 +13,11 @@ class UpdateProfileViewModel(private val userRepository: UserRepository, private
     private val _updateProfileResult = MutableLiveData<Result<UserModel>>()
     val updateProfileResult: LiveData<Result<UserModel>> get() = _updateProfileResult
 
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean> get() = _isLoading
+
     fun updateProfile(name: String, username: String, email:String, password: String) {
+        _isLoading.value = true
         viewModelScope.launch {
             try {
                 val response = userRepository.updateProfile(name, username, email, password)
@@ -35,6 +39,8 @@ class UpdateProfileViewModel(private val userRepository: UserRepository, private
                 }
             } catch (e: Exception) {
                 _updateProfileResult.value = Result.failure(e)
+            } finally {
+                _isLoading.value = false
             }
         }
     }

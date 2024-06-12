@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -19,6 +20,7 @@
             android:name=".view.history_roasting.HistoryHamaActivity"
             android:exported="false" />
         <activity
+            android:name=".view.historyType.HistoryTypeActivity"
             android:name=".view.history_hama.HistoryRoastingActivity"
             android:exported="false" />
         <activity
@@ -38,10 +40,12 @@
             android:exported="false" />
         <activity
             android:name=".view.register.RegisterActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".view.login.LoginActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".view.home.MainActivity"
             android:exported="false" />

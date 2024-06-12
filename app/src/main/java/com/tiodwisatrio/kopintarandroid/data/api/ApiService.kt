@@ -1,7 +1,9 @@
 package com.tiodwisatrio.kopintarandroid.data.api
 
 import com.tiodwisatrio.kopintarandroid.data.response.disease.DiseaseResponse
+import com.tiodwisatrio.kopintarandroid.data.response.forgotPassword.ForgotPasswordResponse
 import com.tiodwisatrio.kopintarandroid.data.response.hama.HamaResponse
+import com.tiodwisatrio.kopintarandroid.data.response.historyType.HistoryTypeResponse
 import com.tiodwisatrio.kopintarandroid.data.response.login.LoginResponse
 import com.tiodwisatrio.kopintarandroid.data.response.profile.UpdateProfileResponse
 import com.tiodwisatrio.kopintarandroid.data.response.register.RegisterResponse
@@ -10,10 +12,12 @@ import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
+import retrofit2.http.GET
 import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.PUT
 import retrofit2.http.Part
+import retrofit2.http.Query
 
 interface ApiService {
     @FormUrlEncoded
@@ -26,11 +30,17 @@ interface ApiService {
     ): RegisterResponse
 
     @FormUrlEncoded
+    @POST("auth/forgot-password")
+    suspend fun forgotPassword(
+        @Field("email") email: String,
+    ): ForgotPasswordResponse
+
+    @FormUrlEncoded
     @POST("auth/login")
-        suspend fun login(
-            @Field("username") username: String,
-            @Field("password") password: String
-        ): LoginResponse
+    suspend fun login(
+        @Field("username") username: String,
+        @Field("password") password: String
+    ): LoginResponse
 
     @FormUrlEncoded
     @PUT("user/profile")
@@ -46,19 +56,26 @@ interface ApiService {
     suspend fun predictHama(
         @Part file: MultipartBody.Part,
 
-    ): HamaResponse
+        ): HamaResponse
 
     @Multipart
     @POST("predict/disease")
     suspend fun predictDisease(
         @Part file: MultipartBody.Part,
         @Part("type") type: RequestBody
-
-        ): DiseaseResponse
+    ): DiseaseResponse
 
     @Multipart
     @POST("predict/roasting")
     suspend fun predictRoasting(
         @Part file: MultipartBody.Part,
     ): RoastingResponse
+
+    @GET("history")
+    suspend fun getHistoryType(
+        @Query("type") type: String
+    ): HistoryTypeResponse
+
+    @GET("history")
+    suspend fun getHistories(): HistoryTypeResponse
 }
