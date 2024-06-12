@@ -11,6 +11,7 @@ import com.tiodwisatrio.kopintarandroid.R
 import com.tiodwisatrio.kopintarandroid.data.pref.UserPreferences
 import com.tiodwisatrio.kopintarandroid.databinding.ActivityMainBinding
 import com.tiodwisatrio.kopintarandroid.view.hama.HamaActivity
+import com.tiodwisatrio.kopintarandroid.view.historyType.HistoryTypeActivity
 import com.tiodwisatrio.kopintarandroid.view.login.LoginActivity
 import com.tiodwisatrio.kopintarandroid.view.profile.ProfileActivity
 import com.tiodwisatrio.kopintarandroid.view.roasting.RoastingActivity
@@ -31,6 +32,10 @@ class MainActivity : AppCompatActivity() {
 
         setupBottomNavigation()
         observeViewModel()
+
+        binding.historyButton.setOnClickListener {
+            startActivity(Intent(this, HistoryTypeActivity::class.java))
+        }
     }
 
     private fun setupBottomNavigation() {

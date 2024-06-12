@@ -2,11 +2,10 @@ package com.tiodwisatrio.kopintarandroid.view.register
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.tiodwisatrio.kopintarandroid.R
 import com.tiodwisatrio.kopintarandroid.data.api.ApiConfig
 import com.tiodwisatrio.kopintarandroid.data.repository.UserRepository
 import com.tiodwisatrio.kopintarandroid.databinding.ActivityRegisterBinding
@@ -21,7 +20,7 @@ class RegisterActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -44,7 +43,7 @@ class RegisterActivity : AppCompatActivity() {
                     Toast.makeText(this, "Register Failed: ${exception.message}", Toast.LENGTH_SHORT).show()
                 },
 
-            )
+                )
         }
     }
 
@@ -54,13 +53,32 @@ class RegisterActivity : AppCompatActivity() {
             val username = binding.edUsername.text.toString()
             val email = binding.edEmail.text.toString()
             val password = binding.edPassword.text.toString()
+            val reenterPassword = binding.edReenterPassword.text.toString()
 
-            viewModel.register(name, username, email, password)
+            if (name.isNotEmpty() && username.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty() && reenterPassword.isNotEmpty()) {
+                if (password.length >= 8) {
+                    if (password == reenterPassword) {
+                        viewModel.register(name, username, email, password)
+                    } else {
+                        binding.edPassword.text.clear()
+                        binding.edReenterPassword.text.clear()
+                        showToast(getString(R.string.error_password_not_match))
+                    }
+                } else {
+                    showToast(getString(R.string.error_password_length))
+                }
+            } else {
+                showToast(getString(R.string.error_empty_field))
+            }
         }
 
         binding.btnLogin.setOnClickListener() {
             val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 }

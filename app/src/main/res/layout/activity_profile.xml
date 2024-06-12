@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_marginBottom="16dp"
-            android:contentDescription="@string/image_profile"
+            android:contentDescription="@string/profile_image"
             android:src="@drawable/login_image" />
 
         <TextView
@@ -49,7 +49,7 @@
                 android:autofillHints="username"
                 android:ems="10"
                 android:enabled="false"
-                android:hint="@string/hint_nama_lengkap"
+                android:hint="@string/hint_full_name"
                 android:inputType="text"
                 android:textColor="@color/black"
                 android:textSize="12sp"
@@ -128,6 +128,31 @@
                 tools:ignore="LabelFor,SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutReenterPassword"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:labelFor="@id/edReenterPassword"
+            android:visibility="gone"
+            app:boxStrokeColor="@color/primary"
+            app:endIconMode="password_toggle"
+            app:startIconTint="@color/white">
+
+            <EditText
+                android:id="@+id/edReenterPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="password"
+                android:ems="10"
+                android:hint="@string/hint_reenter_password"
+                android:inputType="textPassword"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
         <ProgressBar
             android:id="@+id/progressBar"
             android:layout_width="wrap_content"
@@ -143,7 +168,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="16dp"
             android:backgroundTint="@color/blue"
-            android:text="@string/update"
+            android:text="@string/action_update"
             android:visibility="visible" />
 
         <Button
@@ -152,7 +177,7 @@
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:backgroundTint="@color/red"
-            android:text="@string/logout"
+            android:text="@string/action_logout"
             android:visibility="visible" />
 
         <Button
@@ -162,7 +187,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="16dp"
             android:backgroundTint="@color/blue"
-            android:text="@string/save"
+            android:text="@string/action_save"
             android:visibility="gone" />
 
         <Button
@@ -171,7 +196,7 @@
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:backgroundTint="@color/primary"
-            android:text="@string/back"
+            android:text="@string/action_back"
             android:visibility="gone" />
 
     </LinearLayout>
