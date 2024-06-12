@@ -8,6 +8,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.tiodwisatrio.kopintarandroid.R
 import com.tiodwisatrio.kopintarandroid.databinding.ActivityWelcomeBinding
+import com.tiodwisatrio.kopintarandroid.view.home.MainActivity
 import com.tiodwisatrio.kopintarandroid.view.login.LoginActivity
 
 class WelcomeActivity : AppCompatActivity() {
@@ -20,7 +21,7 @@ class WelcomeActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.startButton.setOnClickListener() {
-            val intent = Intent(this@WelcomeActivity, LoginActivity::class.java)
+            val intent = Intent(this@WelcomeActivity, MainActivity::class.java)
             startActivity(intent)
         }
 

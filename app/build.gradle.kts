@@ -52,6 +52,9 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+//    implementation(libs.glide)
+//    implementation(libs.compiler)
+    implementation(libs.androidx.viewpager2)
 //    implementation(libs.yalantis.ucrop)
 //    implementation(libs.ucrop)
 //    implementation("com.github.yalantis:ucrop")
@@ -70,6 +73,7 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.retrofit2.converter.gson)
     implementation(libs.logging.interceptor)
+    
 
     implementation("com.github.bumptech.glide:glide:4.16.0")
 }
