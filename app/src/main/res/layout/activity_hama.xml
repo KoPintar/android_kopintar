@@ -25,13 +25,16 @@
             android:textSize="24sp"
             android:textStyle="bold" />
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imagePreview"
             android:layout_width="250dp"
             android:layout_height="250dp"
+            android:maxHeight="250dp"
             android:layout_gravity="center"
             android:layout_marginTop="56dp"
-            android:src="@drawable/image_placeholder" />
+            android:src="@drawable/image_placeholder"
+            app:shapeAppearanceOverlay="@style/roundedCorner"
+            />
 
         <RadioGroup
             android:id="@+id/radioGroup"

@@ -13,9 +13,11 @@ import androidx.viewpager2.widget.ViewPager2
 import com.tiodwisatrio.kopintarandroid.R
 import com.tiodwisatrio.kopintarandroid.data.pref.UserPreferences
 import com.tiodwisatrio.kopintarandroid.databinding.ActivityMainBinding
+import com.tiodwisatrio.kopintarandroid.view.TipsActivity
 import com.tiodwisatrio.kopintarandroid.view.hama.HamaActivity
 import com.tiodwisatrio.kopintarandroid.view.historyType.HistoryTypeActivity
-import com.tiodwisatrio.kopintarandroid.view.history_hama.HistoryRoastingActivity
+import com.tiodwisatrio.kopintarandroid.view.history_hama.HistoryHamaActivity
+import com.tiodwisatrio.kopintarandroid.view.history_roasting.HistoryRoastingActivity
 import com.tiodwisatrio.kopintarandroid.view.login.LoginActivity
 import com.tiodwisatrio.kopintarandroid.view.profile.ProfileActivity
 import com.tiodwisatrio.kopintarandroid.view.roasting.RoastingActivity
@@ -29,6 +31,7 @@ class MainActivity : AppCompatActivity() {
 
     private val images = listOf(
         R.drawable.image1,
+        R.drawable.image3,
         R.drawable.image2,
     )
 
@@ -48,6 +51,14 @@ class MainActivity : AppCompatActivity() {
 
         binding.historyButton.setOnClickListener {
             startActivity(Intent(this, HistoryTypeActivity::class.java))
+        }
+
+        binding.historyHamaButton.setOnClickListener{
+            startActivity(Intent(this, HistoryHamaActivity::class.java))
+        }
+
+        binding.ctaTips.setOnClickListener {
+            startActivity(Intent(this, TipsActivity::class.java))
         }
     }
 

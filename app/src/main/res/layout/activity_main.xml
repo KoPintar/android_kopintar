@@ -10,16 +10,41 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_marginTop="40dp"
-        android:padding="24dp"
-        >
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="16dp">
 
         <ImageView
+            android:id="@+id/logo"
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:src="@drawable/logo_kopintar"
-            />
+            android:src="@drawable/logo_kopintar" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginLeft="100dp"
+            android:gravity="center_vertical|end"
+            android:orientation="horizontal">
+
+
+            <ImageView
+
+                android:id="@+id/historyButton"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/icon_coffee_history" />
+
+            <ImageView
+                android:id="@+id/historyHamaButton"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/icon_leaf_history" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -27,47 +52,54 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:layout_marginTop="16dp"
         android:text="Tentang Kopintar"
-        />
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
+        android:layout_height="200dp"
         android:layout_marginHorizontal="24dp"
-        android:layout_height="300dp" />
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="24dp">
 
         <TextView
-            android:id="@+id/text_home"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:gravity="center"
-            android:text="Home Activity"
-            android:textAlignment="center"
-            android:textSize="24sp" />
+            android:text="Tips Seputar Kopi"
+            android:textSize="20sp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="24dp"
+            android:textStyle="bold" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/ctaTips"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/green"
+            android:elevation="4dp"
+            app:cardCornerRadius="8dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/tips_image"
+                />
+        </androidx.cardview.widget.CardView>
+
+
     </LinearLayout>
 
-    <Button
-        android:id="@+id/historyButton"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_marginHorizontal="24dp"
-        android:layout_marginBottom="48dp"
-        android:text="@string/action_start"
-        android:backgroundTint="@color/primary"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-  
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"

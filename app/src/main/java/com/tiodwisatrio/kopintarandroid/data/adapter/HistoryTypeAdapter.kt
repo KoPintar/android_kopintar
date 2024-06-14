@@ -17,8 +17,9 @@ class HistoryTypeAdapter : ListAdapter<HistoryTypeResult, HistoryTypeAdapter.His
             Glide.with(binding.root)
                 .load(historyItem.image)
                 .into(binding.imageView)
-            binding.tvName.text = historyItem.type
-            binding.tvDescription.text = historyItem.id.toString()
+            binding.tvName.text = historyItem.classResult
+            binding.tvDescription.text = historyItem.createdAt
+//            binding.tvDescription.text = historyItem.numericResult.toString()
         }
     }
 

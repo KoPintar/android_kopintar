@@ -27,7 +27,7 @@ class HamaResultActivity : AppCompatActivity() {
         binding.resultImage.setImageURI(imageUri)
         binding.titlePenyakit.text = "Penyakit: ${diseaseResult?.result}"
         val confidenceScorePercentage = diseaseResult?.confidenceScore?.times(100)?.toInt()
-        binding.akurasiPenyakit.text = "Akurasi: ${confidenceScorePercentage}%"
+//        binding.akurasiPenyakit.text = "Akurasi: ${confidenceScorePercentage}%"
         if (diseaseResult != null) {
             val suggestionText = "${diseaseResult.suggestion?.joinToString("\n")}"
             binding.suggestionText.text = suggestionText

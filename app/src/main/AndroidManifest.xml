@@ -17,11 +17,13 @@
         android:theme="@style/Theme.KopintarAndroid"
         tools:targetApi="31">
         <activity
-            android:name=".view.history_roasting.HistoryHamaActivity"
+            android:name=".view.TipsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.history_hama.HistoryHamaActivity"
             android:exported="false" />
         <activity
             android:name=".view.historyType.HistoryTypeActivity"
-            android:name=".view.history_hama.HistoryRoastingActivity"
             android:exported="false" />
         <activity
             android:name=".view.roasting_result.RoastingResultActivity"
