@@ -4,10 +4,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.google.gson.Gson
 import com.tiodwisatrio.kopintarandroid.data.model.UserModel
 import com.tiodwisatrio.kopintarandroid.data.pref.UserPreferences
 import com.tiodwisatrio.kopintarandroid.data.repository.UserRepository
+import com.tiodwisatrio.kopintarandroid.data.response.ErrorResponse
 import kotlinx.coroutines.launch
+import retrofit2.HttpException
 
 class UpdateProfileViewModel(private val userRepository: UserRepository, private val userPreferences: UserPreferences) : ViewModel() {
     private val _updateProfileResult = MutableLiveData<Result<UserModel>>()
@@ -37,6 +40,10 @@ class UpdateProfileViewModel(private val userRepository: UserRepository, private
                 } else {
                     _updateProfileResult.value = Result.failure(Exception(response.message))
                 }
+            } catch (e: HttpException) {
+                val jsonString = e.response()?.errorBody()?.string()
+                val errorBody = Gson().fromJson(jsonString, ErrorResponse::class.java)
+                _updateProfileResult.value = Result.failure(Exception(errorBody.message))
             } catch (e: Exception) {
                 _updateProfileResult.value = Result.failure(e)
             } finally {

@@ -34,14 +34,12 @@ class LoginActivity : AppCompatActivity() {
         viewModel.loginResult.observe(this) { result ->
             result.fold(
                 onSuccess = {
-                    // Handle successful login, navigate to the next activity, etc.
-                    showToast("Berhasil Login")
+                    showToast("Berhasil Masuk")
                     startActivity(Intent(this, MainActivity::class.java))
                     finish()
                 },
                 onFailure = { exception ->
-                    // Handle login error
-                    showToast("Login Failed: ${exception.message}")
+                    showToast("Gagal: ${exception.message}")
                 }
             )
         }
@@ -51,10 +49,11 @@ class LoginActivity : AppCompatActivity() {
                 onSuccess = {
                     // Handle successful forgot password
                     toggleForgetPassword(false)
+                    showToast("Berhasil kirim ke Email")
                 },
                 onFailure = { exception ->
                     // Handle forgot password error
-                    showToast("Forgot Password Failed: ${exception.message}")
+                    showToast("Gagal: ${exception.message}")
                 }
             )
         }

@@ -19,8 +19,4 @@ class PredictRepository(private val apiService: ApiService) {
     suspend fun getPredictHistoryType(type: String): HistoryTypeResponse {
         return apiService.getHistoryType(type)
     }
-
-    suspend fun getPredictPredictHistories(): HistoryTypeResponse {
-        return apiService.getHistories()
-    }
 }
