@@ -2,8 +2,6 @@ package com.tiodwisatrio.kopintarandroid.view.home
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -17,7 +15,6 @@ import com.tiodwisatrio.kopintarandroid.view.TipsActivity
 import com.tiodwisatrio.kopintarandroid.view.hama.HamaActivity
 import com.tiodwisatrio.kopintarandroid.view.historyType.HistoryTypeActivity
 import com.tiodwisatrio.kopintarandroid.view.history_hama.HistoryHamaActivity
-import com.tiodwisatrio.kopintarandroid.view.history_roasting.HistoryRoastingActivity
 import com.tiodwisatrio.kopintarandroid.view.login.LoginActivity
 import com.tiodwisatrio.kopintarandroid.view.profile.ProfileActivity
 import com.tiodwisatrio.kopintarandroid.view.roasting.RoastingActivity
@@ -49,7 +46,7 @@ class MainActivity : AppCompatActivity() {
         setupBottomNavigation()
         observeViewModel()
 
-        binding.historyButton.setOnClickListener {
+        binding.historyRoastingButton.setOnClickListener {
             startActivity(Intent(this, HistoryTypeActivity::class.java))
         }
 
@@ -61,28 +58,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, TipsActivity::class.java))
         }
     }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.history_menu, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.menu_history_pest_detection -> {
-                startActivity(Intent(this, HistoryRoastingActivity::class.java))
-                true
-            }
-
-            R.id.menu_history_roasting -> {
-                startActivity(Intent(this, HistoryRoastingActivity::class.java))
-                true
-            }
-
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
-
 
     private fun setupBottomNavigation() {
 

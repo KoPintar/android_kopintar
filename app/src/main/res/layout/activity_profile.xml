@@ -29,7 +29,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/profile_title"
-            android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -39,7 +38,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:labelFor="@id/edUsername"
-            app:boxStrokeColor="@color/primary"
             app:startIconTint="@color/white">
 
             <EditText
@@ -51,7 +49,6 @@
                 android:enabled="false"
                 android:hint="@string/hint_full_name"
                 android:inputType="text"
-                android:textColor="@color/black"
                 android:textSize="12sp"
                 tools:ignore="LabelFor,SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -62,7 +59,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:labelFor="@id/edEmail"
-            app:boxStrokeColor="@color/primary"
             app:startIconTint="@color/white">
 
             <EditText
@@ -74,7 +70,6 @@
                 android:enabled="false"
                 android:hint="@string/hint_email"
                 android:inputType="textEmailAddress"
-                android:textColor="@color/black"
                 android:textSize="12sp"
                 tools:ignore="LabelFor,SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -85,7 +80,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:labelFor="@id/edUsername"
-            app:boxStrokeColor="@color/primary"
             app:startIconTint="@color/white">
 
             <EditText
@@ -97,7 +91,6 @@
                 android:enabled="false"
                 android:hint="@string/hint_username"
                 android:inputType="text"
-                android:textColor="@color/black"
                 android:textSize="12sp"
                 tools:ignore="LabelFor,SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -110,7 +103,6 @@
             android:layout_marginTop="16dp"
             android:labelFor="@id/edUsername"
             android:visibility="gone"
-            app:boxStrokeColor="@color/primary"
             app:endIconMode="password_toggle"
             app:startIconTint="@color/white">
 
@@ -123,7 +115,6 @@
                 android:enabled="false"
                 android:hint="@string/hint_password"
                 android:inputType="textPassword"
-                android:textColor="@color/black"
                 android:textSize="12sp"
                 tools:ignore="LabelFor,SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -136,7 +127,6 @@
             android:layout_marginTop="16dp"
             android:labelFor="@id/edReenterPassword"
             android:visibility="gone"
-            app:boxStrokeColor="@color/primary"
             app:endIconMode="password_toggle"
             app:startIconTint="@color/white">
 
@@ -148,7 +138,6 @@
                 android:ems="10"
                 android:hint="@string/hint_reenter_password"
                 android:inputType="textPassword"
-                android:textColor="@color/black"
                 android:textSize="12sp"
                 tools:ignore="SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -169,6 +158,7 @@
             android:layout_marginTop="16dp"
             android:backgroundTint="@color/blue"
             android:text="@string/action_update"
+            android:textColor="@color/white"
             android:visibility="visible" />
 
         <Button
@@ -178,6 +168,7 @@
             android:layout_gravity="center"
             android:backgroundTint="@color/red"
             android:text="@string/action_logout"
+            android:textColor="@color/white"
             android:visibility="visible" />
 
         <Button
@@ -188,6 +179,7 @@
             android:layout_marginTop="16dp"
             android:backgroundTint="@color/blue"
             android:text="@string/action_save"
+            android:textColor="@color/white"
             android:visibility="gone" />
 
         <Button
@@ -197,6 +189,7 @@
             android:layout_gravity="center"
             android:backgroundTint="@color/primary"
             android:text="@string/action_back"
+            android:textColor="@color/white"
             android:visibility="gone" />
 
     </LinearLayout>
@@ -207,6 +200,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:transitionName="bottom_navigation"
+        app:itemActiveIndicatorStyle="@color/primary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/bottom_navigation_menu"
         tools:layout_editor_absoluteX="24dp" />

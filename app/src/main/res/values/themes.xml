@@ -1,31 +1,17 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+<resources>
+
     <style name="Base.Theme.KopintarAndroid" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-         <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimary">@color/primary</item>
     </style>
 
-    <style name="Theme.KopintarAndroid" parent="Base.Theme.KopintarAndroid" />
     <style name="roundedCorner">
-        <item name="cornerFamily">rounded</item> <!-- Memilih jenis sudut yang dibulatkan -->
-        <item name="cornerSize">8dp</item> <!-- Menetapkan ukuran sudut yang dibulatkan -->
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
     </style>
-
 
     <style name="TableTextStyle">
         <item name="android:padding">8dp</item>
         <item name="android:gravity">center</item>
-        <item name="android:textColor">#000000</item> <!-- Warna teks hitam -->
+        <item name="android:textColor">#000000</item>
     </style>
-
-<!--    <style name="TableHeaderStyle">-->
-<!--        <item name="android:padding">8dp</item>-->
-<!--        <item name="android:gravity">center</item>-->
-<!--        <item name="android:textColor">#FFFFFF</item> &lt;!&ndash; Warna teks putih &ndash;&gt;-->
-<!--        <item name="android:background">#8B4513</item> &lt;!&ndash; Warna background coklat &ndash;&gt;-->
-<!--    </style>-->
-
-<!--    <style name="TableRowStyle" >-->
-<!--        <item name="android:background">@drawable/border</item> &lt;!&ndash; Warna background kuning kecoklatan &ndash;&gt;-->
-<!--    </style>-->
 </resources>

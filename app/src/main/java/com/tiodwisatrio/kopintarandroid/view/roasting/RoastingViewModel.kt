@@ -6,7 +6,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.google.gson.Gson
 import com.tiodwisatrio.kopintarandroid.data.repository.PredictRepository
+import com.tiodwisatrio.kopintarandroid.data.response.ErrorResponse
 import com.tiodwisatrio.kopintarandroid.data.response.roasting.RoastingResult
 import com.tiodwisatrio.kopintarandroid.reduceFileImage
 import com.tiodwisatrio.kopintarandroid.uriToFile
@@ -14,6 +16,7 @@ import kotlinx.coroutines.launch
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
+import retrofit2.HttpException
 
 class RoastingViewModel(private val predictRepository: PredictRepository) : ViewModel() {
     private val _predictResult = MutableLiveData<Result<RoastingResult>>()
@@ -38,6 +41,10 @@ class RoastingViewModel(private val predictRepository: PredictRepository) : View
                     } else {
                         _predictResult.value = Result.failure(Exception(response.message))
                     }
+                } catch (e: HttpException) {
+                    val jsonString = e.response()?.errorBody()?.string()
+                    val errorBody = Gson().fromJson(jsonString, ErrorResponse::class.java)
+                    _predictResult.value = Result.failure(Exception(errorBody.message))
                 } catch (e: Exception) {
                     _predictResult.value = Result.failure(e)
                 }

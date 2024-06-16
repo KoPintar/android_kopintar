@@ -19,7 +19,6 @@ class HistoryTypeAdapter : ListAdapter<HistoryTypeResult, HistoryTypeAdapter.His
                 .into(binding.imageView)
             binding.tvName.text = historyItem.classResult
             binding.tvDescription.text = historyItem.createdAt
-//            binding.tvDescription.text = historyItem.numericResult.toString()
         }
     }
 

@@ -29,12 +29,11 @@
             android:id="@+id/imagePreview"
             android:layout_width="250dp"
             android:layout_height="250dp"
-            android:maxHeight="250dp"
             android:layout_gravity="center"
             android:layout_marginTop="56dp"
+            android:maxHeight="250dp"
             android:src="@drawable/image_placeholder"
-            app:shapeAppearanceOverlay="@style/roundedCorner"
-            />
+            app:shapeAppearanceOverlay="@style/roundedCorner" />
 
         <RadioGroup
             android:id="@+id/radioGroup"
@@ -108,5 +107,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:transitionName="bottom_navigation"
+        app:itemActiveIndicatorStyle="@color/primary"
         app:menu="@menu/bottom_navigation_menu" />
 </LinearLayout>

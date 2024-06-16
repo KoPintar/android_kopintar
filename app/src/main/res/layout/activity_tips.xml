@@ -12,22 +12,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
+        android:layout_marginBottom="32dp"
         android:text="Tips Activity"
         android:textAlignment="center"
         android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="32dp"
-        />
+        android:textStyle="bold" />
 
-    <!--  Buat tabel di bawah sini  -->
-
+    <!-- Buat tabel di bawah sini -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Panduan Roasting"
-        android:textStyle="bold"
         android:textSize="18sp"
-        />
+        android:textStyle="bold" />
 
     <TableLayout
         android:layout_width="match_parent"
@@ -39,6 +36,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/primary">
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/primary" />
 
             <TextView
                 android:layout_width="0dp"
@@ -62,7 +64,6 @@
                 android:textSize="12sp"
                 android:textStyle="bold" />
 
-
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -73,6 +74,11 @@
                 android:textColor="@color/white"
                 android:textSize="12sp"
                 android:textStyle="bold" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/primary" />
         </TableRow>
 
         <!-- Data Tabel -->
@@ -80,19 +86,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/border"
-            >
+            android:gravity="center">
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/primary" />
 
             <TextView
                 style="@style/TableTextStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 android:layout_weight="1"
                 android:text="Light"
                 android:textSize="12sp" />
 
             <View
-                android:layout_width="1dp"
+                android:layout_width="2dp"
                 android:layout_height="match_parent"
                 android:background="@color/primary" />
 
@@ -101,18 +111,12 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="Teh,\nFloral,\nEarthy"
-                android:layout_gravity="center"
                 android:textSize="12sp" />
 
             <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="@color/primary" />
-
-
-            <View
-                android:layout_width="1dp"
+                android:layout_width="2dp"
                 android:layout_height="match_parent"
                 android:background="@color/primary" />
 
@@ -121,28 +125,38 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="Pour Over,\nAeropress,\nCold Brew,\nWalkure,\nAutomatic Drip"
                 android:textSize="12sp" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/primary" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/border"
-            >
+            android:gravity="center">
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/primary" />
 
             <TextView
                 style="@style/TableTextStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:layout_gravity="center"
-
+                android:gravity="center"
                 android:text="Medium"
                 android:textSize="12sp" />
 
             <View
-                android:layout_width="1dp"
+                android:layout_width="2dp"
                 android:layout_height="match_parent"
                 android:background="@color/primary" />
 
@@ -151,18 +165,12 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="Acidity dan Body Seimbang"
-                android:layout_gravity="center"
                 android:textSize="12sp" />
 
             <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="@color/primary" />
-
-
-            <View
-                android:layout_width="1dp"
+                android:layout_width="2dp"
                 android:layout_height="match_parent"
                 android:background="@color/primary" />
 
@@ -171,27 +179,38 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Pour Over,\nFrench Press,\nVietnam Drip,\nEva pSolo,\nAutomatic Drip"
+                android:gravity="center"
+                android:text="Pour Over,\nFrench Press,\nVietnam Drip,\nEva Solo,\nAutomatic Drip"
                 android:textSize="12sp" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/primary" />
         </TableRow>
+
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/border"
-        >
+            android:gravity="center">
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/primary" />
 
             <TextView
                 style="@style/TableTextStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:layout_gravity="center"
-
+                android:gravity="center"
                 android:text="Medium Dark"
                 android:textSize="12sp" />
 
             <View
-                android:layout_width="1dp"
+                android:layout_width="2dp"
                 android:layout_height="match_parent"
                 android:background="@color/primary" />
 
@@ -200,18 +219,12 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="Light Chocolate,\nCaramel"
-                android:layout_gravity="center"
                 android:textSize="12sp" />
 
             <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="@color/primary" />
-
-
-            <View
-                android:layout_width="1dp"
+                android:layout_width="2dp"
                 android:layout_height="match_parent"
                 android:background="@color/primary" />
 
@@ -220,49 +233,52 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="Vietnam Drip,\nAutomatic Drip,\nEspresso"
                 android:textSize="12sp" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/primary" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/border"
-           >
+            android:gravity="center">
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/primary" />
 
             <TextView
                 style="@style/TableTextStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="Dark"
-                android:layout_gravity="center"
-
                 android:textSize="12sp" />
 
             <View
-                android:layout_width="1dp"
+                android:layout_width="2dp"
                 android:layout_height="match_parent"
                 android:background="@color/primary" />
-
 
             <TextView
                 style="@style/TableTextStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="Tobacco Ash,\nMolasses"
-                android:layout_gravity="center"
                 android:textSize="12sp" />
 
             <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="@color/primary" />
-
-
-            <View
-                android:layout_width="1dp"
+                android:layout_width="2dp"
                 android:layout_height="match_parent"
                 android:background="@color/primary" />
 
@@ -271,14 +287,15 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="Automatic Drip,\nEspresso"
                 android:textSize="12sp" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/primary" />
         </TableRow>
-
-
-
-
     </TableLayout>
-
 
 </androidx.appcompat.widget.LinearLayoutCompat>
